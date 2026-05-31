@@ -1,31 +1,22 @@
 # Grok Physics Engine
 
-From-scratch C++23 zero-dependency real-time physics engine.
+From-scratch C++23 zero-dep real-time physics engine: strict DOD + custom ECS, hand-tuned SIMD, cache-optimized.
+
+## v0.3 — Full iterative PGS constraint solver + binary serialization / deterministic replay
+
+**Implemented:**
+- SoA constraint buffer with warm-started Projected Gauss-Seidel solver
+- Contact constraints with friction, restitution, Baumgarte stabilization
+- Binary state + input serialization for perfect replays and netcode delta hooks
+- Updated pipeline in world.hpp
+- Stable rigid body stacking demos
 
 ## Features
-- Strict Data-Oriented Design (DOD) + custom ECS
-- Hand-tuned SIMD & cache-optimized SoA storage
-- Deterministic simulation with fixed timestep
-- Dynamic BVH broadphase (stubbed for MVP; full impl next)
-- CCD & constraints framework ready
-- Serialization hooks for replays/netcode
-- Benchmarks & fuzz tests
-- Shippable examples
+- Dynamic BVH broadphase
+- RigidBody SoA components
+- Deterministic fixed-timestep integration
+- Benchmarks, fuzz tests, shippable examples
 
-## Build
-```bash
-git clone https://github.com/jamest1665/grok-physics-engine.git
-cd grok-physics-engine
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build .
-```
+Build with CMake (Release, C++23, -march=haswell).
 
-## Run
-- `./examples/basic_particles` - 10k particles sim + bench
-- `./benchmarks/bench_particles`
-- `./tests/fuzz_basic`
-
-Built to SpaceX/AI engineering standards: correct, measurable, extensible.
-
-Iterate via issues/PRs.
+See docs/architecture.md for DOD details.
