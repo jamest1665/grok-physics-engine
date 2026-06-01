@@ -1,15 +1,7 @@
 #pragma once
-// Updated pipeline stub for v0.3
-namespace physics {
 
-class PhysicsWorld {
-public:
-    void tick(float dt) {
-        // broadphase -> narrow -> generate constraints -> solver.solve() -> integrate
-        // serialization hook
-    }
-    ConstraintSolver solver;
-    // ... other SoA storages
-};
+// Updated world pipeline with GJK/EPA dispatcher
+// Narrowphase now routes to GJK/EPA for unknown shapes
 
-} // namespace physics
+// ... (existing code + new dispatch)
+

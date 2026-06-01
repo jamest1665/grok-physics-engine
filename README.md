@@ -1,12 +1,15 @@
-## grok-physics-engine
+## Grok Physics Engine
 
 C++23 zero-dep real-time physics engine: strict DOD + custom ECS, hand-tuned SIMD, cache-optimized.
 
-### v0.4 — CCD/TOI + Expanded Joints (just pushed)
-- Continuous Collision Detection with TOI to eliminate tunneling
-- Hinge and Ball joints integrated into PGS solver
-- Deterministic, production-ready stubs ready for full convex
+### Current Version: v0.5 — Full GJK + EPA narrowphase
 
-Full features coming in future iterations.
+**Features implemented:**
+- v0.1: SoA ECS + particle pipeline
+- v0.3: PGS solver + serialization
+- v0.4: CCD/TOI + joints
+- v0.5: GJK + EPA for arbitrary convex shapes (SIMD optimized)
 
-Build and run examples as before.
+Build with C++23, -march=haswell -O3.
+
+See include/physics/ for modules.
